@@ -2,11 +2,11 @@ import axios from "axios";
 
 export const getDroneConfig = async (droneId) => {
   try {
-    const url = `${process.env.CONFIG_URL}?drone_id=${droneId}`;
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error("❌ Error fetching drone config:", error.message);
-    throw error;
+    const url = `${process.env.CONFIG_URL}?id=${droneId}`;
+    const res = await axios.get(url);
+    return res.data;
+  } catch (err) {
+    console.error("Error fetching drone config:", err.message);
+    throw err;
   }
 };
